@@ -1,7 +1,7 @@
 <template>
   <div class="services-block">
       <h2 class="services__title">
-        НАШИ УСЛУГИ
+        Другие услуги
       </h2>
       <div class="services_nav_filters">
           <ul class="services_nav_items" style="cursor: pointer">
@@ -22,7 +22,7 @@
                     </ul>
                 </div>
               </div>
-            <div class="service_title" @click="toServicePage(item.id)">
+            <div class="service_title">
                 {{item.title}}
             </div>
             <div class="service_type">
@@ -37,7 +37,7 @@
 <script>
 import axios from 'axios'
 export default {
-    name: 'Services',
+    name: 'OtherServices',
     data(){
         return{
             items: [],
@@ -47,10 +47,6 @@ export default {
         this.getAllItems()
     },
     methods:{
-        toServicePage(id){
-            console.log(id)
-            this.$router.push({ name: 'ServiceType', query: {'id': id }})
-        },
         getAllItems(filter){
             axios.get(
                 'http://localhost:8000/api/services/',{

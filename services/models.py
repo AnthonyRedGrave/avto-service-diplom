@@ -1,5 +1,6 @@
-from tabnanny import verbose
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -54,7 +55,7 @@ class ServiceType(models.Model):
     text = models.TextField("Информация об услуге")
     suggestions = models.ManyToManyField(ServiceSuggestion, verbose_name="Предложения")
     type = models.CharField("Тип услуги", max_length=60, choices=ServiceTypeChoice.choices)
-    
+    preview_text = models.TextField('Текст для превью', null=True)
 
     def __str__(self) -> str:
         return self.title
@@ -62,3 +63,8 @@ class ServiceType(models.Model):
     class Meta:
         verbose_name = 'Тип услуги'
         verbose_name_plural = 'Типы услуг'
+
+
+@receiver(post_save, sender=ServiceType)
+def create_service_gallery(sender, instance, **kwargs):
+    gallery, created = ServiceGallery.objects.get_or_create(service=instance)

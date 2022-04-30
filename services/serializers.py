@@ -9,7 +9,7 @@ class ServiceTypeSerializer(serializers.ModelSerializer):
     images = serializers.SerializerMethodField()
 
     def get_images(self, obj):
-        return obj.gallery.images.all().values_list('image')
+        return obj.gallery.images.all().values_list('image', flat=True)
     
     class Meta:
         model = ServiceType

@@ -2,10 +2,10 @@
   <div class="nav-bar">
       <ul class="nav-bar-items">
         <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">ГЛАВНАЯ</a>
+          <a class="navlink" aria-current="page" href="/">ГЛАВНАЯ</a>
         </li>
         <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">РЕМОНТ</a>
+          <a class="navlink" aria-current="page" href="/repairs">РЕМОНТ</a>
         </li>
         <li class="navitem">
           <a class="navlink" aria-current="page" href="#">УСЛУГИ</a>
@@ -21,9 +21,6 @@
         </li>
         <li class="navitem">
           <a class="navlink" aria-current="page" href="#">КОНТАКТЫ</a>
-        </li>
-        <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">ФИЛИАЛ</a>
         </li>
     
       </ul>

@@ -24,6 +24,29 @@
           </div>
 
       </div>
+      <div class="servicetype_images">
+            <div v-if="haveImages" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img :src="'http://localhost:8000/media/'+serviceData.images[0]" height="500" class="d-block w-80" alt="...">
+                </div>
+                <div v-if="this.serviceData.images.length == 2" class="carousel-item">
+                  <img :src="'http://localhost:8000/media/'+serviceData.images[1]" height="500" class="d-block w-80" alt="...">
+                </div>
+                <div v-if="this.serviceData.images.length == 3" class="carousel-item">
+                  <img :src="'http://localhost:8000/media/'+serviceData.images[2]" height="500" class="d-block w-80" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         <hr>
       <div class="servicetype_body">
           <div class="servicetype_text" v-html="serviceData.text" align="left">
@@ -36,6 +59,7 @@
               </ul>
           </div>
       </div>
+
       <OtherServices/>
   </div>
 </template>
@@ -51,6 +75,7 @@ export default {
     data(){
         return {
             serviceData:{},
+            haveImages: false
         }
     },
     created() {
@@ -62,6 +87,9 @@ export default {
                 `http://localhost:8000/api/services/${this.$route.query.id}`
             ).then((response) =>{
                 this.serviceData = response.data
+                if (this.serviceData.images.length !== 0){
+                  this.haveImages = true
+                }
                 console.log(this.serviceData)
             }).catch((err)=>{
                 console.log(err)
@@ -125,6 +153,12 @@ export default {
 }
 .work_info_warranty{
     width: 200px;
+}
+
+.servicetype_images{
+  padding-left: 520px;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 </style>

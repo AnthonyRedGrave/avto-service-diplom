@@ -26,39 +26,36 @@
               <h5 style="margin-left: 30px; border-bottom: 1px solid red; margin-bottom: 15px;">МЕНЮ</h5>
               <ul class="nav-bar-items">
                 <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">ГЛАВНАЯ</a>
+                <a class="navlink" aria-current="page" href="/">ГЛАВНАЯ</a>
                 </li>
                 <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">РЕМОНТ</a>
+                <a class="navlink" aria-current="page" href="/repairs">РЕМОНТ</a>
                 </li>
                 <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">УСЛУГИ</a>
+                <a class="navlink" aria-current="page" href="/services">УСЛУГИ</a>
                 </li>
                 <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">АВТОЭЛЕКТРИКА</a>
+                <a class="navlink" aria-current="page" href="/electric">АВТОЭЛЕКТРИКА</a>
                 </li>
                 <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">МАГАЗИН</a>
+                <a class="navlink" aria-current="page" href="/order">ЗАКАЗ УСЛУГ</a>
                 </li>
                 <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">О КОМПАНИИ</a>
+                <a class="navlink" aria-current="page" href="/">О КОМПАНИИ</a>
                 </li>
                 <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">КОНТАКТЫ</a>
-                </li>
-                <li class="navitem">
-                <a class="navlink" aria-current="page" href="#">ФИЛИАЛ</a>
+                <a class="navlink" aria-current="page" href="/contacts">КОНТАКТЫ</a>
                 </li>
             </ul>
           </div>
         
         <div class="contacts" align="left">
             <h5 style="border-bottom: 1px solid red; margin-bottom: 15px;">КОНТАКТЫ</h5>
-            <p>г. Витебск,ул.Воинов-Интернационалистов 1В</p>
-            <p>Городcкой: 8 (0212) 25-20-83</p>
-            <p>МТС: +375 29 719-34-40, +375 29 513-96-96</p>
+            <p>г.Полоцк,ул.Е.Полоцкой 1А</p>
+            <p>Алексей Стародуб</p>
+            <p>МТС: +375 29 2160090, +375 29 513-96-96</p>
             <p>A1: +375 29 693-73-42, +375 29 613-96-96</p>
-            <p>kolya_005@mail.ru</p>
+            <p>alexey@mail.ru</p>
         </div>
       </div>
     

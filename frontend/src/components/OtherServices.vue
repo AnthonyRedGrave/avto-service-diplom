@@ -19,7 +19,7 @@
                 <img v-else width="350" height="310" class="image_service" :src="'http://localhost:8000/media/'+item.images[0]" alt="">
                 <div class="service_suggestions" align="left" style="pointer-events: none">
                     <ul class=ul_suggestions>
-                        <li class="li_suggestion" v-for="i in 6" :key="i">{{item.suggestions[i]}}</li>
+                        <li class="li_suggestion" v-for="i in 5" :key="i">{{item.suggestions[i]}}</li>
                     </ul>
                 </div>
               </div>

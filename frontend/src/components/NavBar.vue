@@ -51,4 +51,14 @@ export default {
 .navitem:last-child{
     margin-right: 30px;
 }
+
+.navlink{
+  text-decoration: none;
+  color: rgb(95, 95, 95);
+}
+
+.navlink:hover{
+  border-bottom: 1px solid black;
+  color: rgb(0, 0, 0);
+}
 </style>

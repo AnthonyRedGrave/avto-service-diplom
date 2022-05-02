@@ -8,19 +8,19 @@
           <a class="navlink" aria-current="page" href="/repairs">РЕМОНТ</a>
         </li>
         <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">УСЛУГИ</a>
+          <a class="navlink" aria-current="page" href="/services">УСЛУГИ</a>
         </li>
         <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">АВТОЭЛЕКТРИКА</a>
+          <a class="navlink" aria-current="page" href="/electric">АВТОЭЛЕКТРИКА</a>
         </li>
         <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">МАГАЗИН</a>
+          <a class="navlink" aria-current="page" href="/order">ЗАКАЗ УСЛУГИ</a>
         </li>
         <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">О КОМПАНИИ</a>
+          <a class="navlink" aria-current="page" href="/">О КОМПАНИИ</a>
         </li>
         <li class="navitem">
-          <a class="navlink" aria-current="page" href="#">КОНТАКТЫ</a>
+          <a class="navlink" aria-current="page" href="/contacts">КОНТАКТЫ</a>
         </li>
     
       </ul>

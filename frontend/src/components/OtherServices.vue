@@ -13,9 +13,10 @@
           </ul>
       </div>
       <div class="services">
-          <div class="service_block" v-for="item in items" :key="item.id">
+          <div class="other_service_block" v-for="item in items" :key="item.id">
               <div class="service_image" @mouseleave="hideSuggestions($event)" @mouseover="showSuggestions($event)">
-                <img width="350" class="image_service" src="~@/assets/avto-service-logo.jpeg" alt="">
+                <img v-if="item.images.length == 0" width="350" class="image_service" src="~@/assets/avto-service-logo.jpeg" alt="">
+                <img v-else width="350" height="310" class="image_service" :src="'http://localhost:8000/media/'+item.images[0]" alt="">
                 <div class="service_suggestions" align="left" style="pointer-events: none">
                     <ul class=ul_suggestions>
                         <li class="li_suggestion" v-for="i in 6" :key="i">{{item.suggestions[i]}}</li>
@@ -119,7 +120,7 @@ export default {
     width: 1260px;
     flex-wrap: wrap
 }
-.service_block{
+.other_service_block{
     border: 1px solid black;
     margin: 10px;
     border-radius: 15px;

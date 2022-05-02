@@ -51,6 +51,7 @@ class ServiceType(models.Model):
     contacts = models.ManyToManyField(User)
     time = models.CharField("Время услуги", max_length=30)
     price = models.CharField("Стоимость услуги за полный цикл", max_length=30)
+    price_int = models.IntegerField("Стоимость услуги")
     warranty = models.CharField("Гарантия", max_length=50)
     text = models.TextField("Информация об услуге")
     suggestions = models.ManyToManyField(ServiceSuggestion, verbose_name="Предложения")
@@ -68,3 +69,31 @@ class ServiceType(models.Model):
 @receiver(post_save, sender=ServiceType)
 def create_service_gallery(sender, instance, **kwargs):
     gallery, created = ServiceGallery.objects.get_or_create(service=instance)
+
+
+class OrderService(models.Model):
+    service = models.ForeignKey(ServiceType, verbose_name='Заказываемая услуга', on_delete=models.CASCADE)
+    order = models.ForeignKey('Order', related_name='ordered_service', on_delete=models.CASCADE, verbose_name='Заказ')
+
+    def __str__(self) -> str:
+        return f"Заказанная услуга {self.service.title} - {self.order.phone}"
+
+    class Meta:
+        verbose_name = 'Заказываемая услуга'
+        verbose_name_plural = 'Заказываемые услуги'
+
+
+
+
+class Order(models.Model):
+    first_name = models.CharField("Имя пользователя", max_length=150)
+    last_name = models.CharField("Фамилия пользователя", max_length=150)
+    phone = models.CharField("Номер телефона", max_length=150)
+    total_price = models.IntegerField("Общая цена", default=0)
+
+    def __str__(self) -> str:
+        return f"Заказ {self.first_name} - {self.last_name} - {self.phone} - {self.total_price}"
+
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'

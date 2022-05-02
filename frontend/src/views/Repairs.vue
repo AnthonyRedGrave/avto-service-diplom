@@ -1,13 +1,14 @@
 <template>
   <div class="services-block">
       <h2 class="services__title">
-        НАШИ УСЛУГИ ПО РЕМОНТУ
+        РЕМОНТ
       </h2>
 
       <div class="services">
-          <div class="service_block" v-for="item in items" :key="item.id">
+          <div class="repair_block" v-for="item in items" :key="item.id">
               <div class="service_image" @mouseleave="hideSuggestions($event)" @mouseover="showSuggestions($event)">
-                <img width="350" height="310" class="image_service" :src="'http://localhost:8000/media/'+item.images[0]" alt="">
+                <img v-if="item.images.length == 0" width="350" class="image_service" src="~@/assets/avto-service-logo.jpeg" alt="">
+                <img v-else width="350" height="310" class="image_service" :src="'http://localhost:8000/media/'+item.images[0]" alt="">
                 <div class="service_suggestions" align="left" style="pointer-events: none">
                     <ul class=ul_suggestions>
                         <li class="li_suggestion" v-for="i in 6" :key="i">{{item.suggestions[i]}}</li>
@@ -20,7 +21,8 @@
             <div class="service_type">
                 {{item.get_type_display}}
             </div>
-            <div class="service_preview_text">
+            <div class="service_preview_text" align="left">
+                {{item.preview_text}}
             </div>
           </div>
 
@@ -53,6 +55,9 @@ export default {
                 }
             }).then((response) =>{
                 this.items = response.data
+                this.items.forEach(element => {
+                  element.preview_text = element.preview_text.slice(0, 160) + '...'
+                });
 
             }).catch((err)=>{
                 console.log(err)
@@ -97,10 +102,10 @@ export default {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    width: 1260px;
+    width: 1200px;
     flex-wrap: wrap
 }
-.service_block{
+.repair_block{
     border: 2px solid #880000;
     margin: 10px;
     border-radius: 5px;
@@ -159,5 +164,10 @@ export default {
 
 .services_nav_item:active{
     background-color: #dda2a2;
+}
+
+.service_preview_text{
+  font-size: 15px;
+  padding: 10px;
 }
 </style>

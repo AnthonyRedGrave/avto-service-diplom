@@ -52,10 +52,11 @@
           <div class="servicetype_text" v-html="serviceData.text" align="left">
           </div>
           
-          <div class="servicetype_suggestions">
+          <div class="servicetype_suggestions" align="left">
               <h3>Сотрудниками нашего СТО выполняются следующие работы:</h3>
-              <ul>
-                <li v-for="sugg in serviceData.suggestions" :key="sugg">{{sugg}}</li>
+              <hr>
+              <ul class="suggestions_list">
+                <li class="sugg_li" v-for="sugg in serviceData.suggestions" :key="sugg">{{sugg}}</li>
               </ul>
           </div>
       </div>
@@ -159,6 +160,15 @@ export default {
   padding-left: 520px;
   margin: 0 auto;
   margin-bottom: 50px;
+}
+
+.suggestions_list{
+  list-style-type: none;
+}
+
+.sugg_li{
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 </style>
